@@ -12,7 +12,7 @@ function SearchBar(props) {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <input type="submit" />
+            <input className='button' type="submit" />
         </form>
 
     )

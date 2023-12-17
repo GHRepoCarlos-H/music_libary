@@ -28,7 +28,7 @@ function GalleryItem(props) {
     
     const detailView = () => {
         const detailStyle = {
-          'width': '50vw',  // Updated to cover the entire width
+          'width': '60vw',  // Updated to cover the entire width
           'height': '20vh',
           'margin': '2px',
           'backgroundRepeat': 'no-repeat',
