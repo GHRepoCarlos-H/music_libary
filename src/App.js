@@ -1,9 +1,13 @@
 //folder components file App.js
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Gallery from './components/Gallery';
 import SearchBar from './components/SearchBar';
+import AlbumView from './components/AlbumView';
+import ArtistView from './components/ArtistView'; 
 import { DataContext } from './components/context/DataContext';
 import './App.css';
+
 
 const API_URL = "https://itunes.apple.com/search?term=";
 
@@ -12,7 +16,6 @@ function App() {
 	let [message, setMessage] = useState('Search for Music!')
 	let [data, setData] = useState([])
 
-	const API_URL = 'https://itunes.apple.com/search?term='
 
 	useEffect(() => {
 		if(search) {
@@ -37,11 +40,22 @@ function App() {
 
 	return (
 		<div>
-			<SearchBar handleSearch = {handleSearch}/>
-			{message}
-			<DataContext.Provider value={data}>
-				<Gallery />
-			</DataContext.Provider>
+		<p>{message}</p>	
+			<Router>
+				<Routes>
+					<Route path='/' element={
+					<Fragment>
+						<SearchBar handleSearch = {handleSearch}/>
+						<DataContext.Provider value={data}>
+							<Gallery data={data} />
+						</DataContext.Provider>
+					</Fragment>
+					} />
+					<Route path="/album/:id" element={<AlbumView />} />
+					<Route path="/artist/:id" element={<ArtistView />} />
+				</Routes>
+			</Router>
+			
 		</div>
   	);
 }

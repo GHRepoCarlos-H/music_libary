@@ -1,5 +1,6 @@
 //folder components file GalleryItem
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 function GalleryItem(props) {
@@ -8,10 +9,10 @@ function GalleryItem(props) {
     const simpleView = () => {
         const simpleStyle = {
             'width': '30vw',
-            'height': '25vh',
+            'height': '30vh',
             'border': '9px inset purple',
             'margin': '5px',
-            'background-color': 'black',
+            'backgroundColor': 'black',
             'color': 'white'
         }
         return (
@@ -39,13 +40,18 @@ function GalleryItem(props) {
       
         return (
           <div style={detailStyle}>
-            <img
-              src={props.item.artworkUrl100}
-              alt={props.item.trackName}
-              style={{ width: '25%', height: '100%', objectFit: 'cover' }}
-            />
             <h2>{props.item.trackName}</h2>
-            <h3>{props.item.collectionName}</h3>
+            <h3>
+              <Link to={`/artist/${props.item.artistId}`}>
+                {props.item.artistName}
+              </Link>
+            </h3>
+            
+            <h3>
+              <Link to={`/album/${props.item.collectionId}`}>
+              {props.item.collectionName}
+              </Link>
+            </h3>
             <h4>{props.item.primaryGenreName}</h4>
             <h4>{props.item.releaseDate}</h4>
           </div>
