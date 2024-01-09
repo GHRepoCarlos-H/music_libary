@@ -7,6 +7,8 @@ import AlbumView from './components/AlbumView';
 import ArtistView from './components/ArtistView'; 
 import { DataContext } from './components/context/DataContext';
 import './App.css';
+import './components/helper'
+
 
 
 const API_URL = "https://itunes.apple.com/search?term=";
