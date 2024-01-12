@@ -1,7 +1,7 @@
 //folder components file Gallery.js
 import { useContext } from 'react';
 import GalleryItem from './GalleryItem';
-import { DataContext } from './context/DataContext'; // Import DataContext
+import { DataContext } from './context/DataContext';
 
 function Gallery() {
   const data = useContext(DataContext);

@@ -1,5 +1,6 @@
 body{
   background-color: black;
+  color:#fff
 }
 
 .button {
@@ -29,3 +30,4 @@ form input[type="text"] {
   margin-right: 5px;
   
 }
+
